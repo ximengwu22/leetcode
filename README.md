@@ -46,7 +46,15 @@ return prof
 ```
 
 901.	Online Stock Span (Med)
-
+每次都循环查找会造成o(n^2)超时，需要每次调用时适当合并前面的值，做存储
+```
+def next(self, price: int) -> int:
+    cnt = 0
+    #每次找与插入值最接近的值，倒序查找
+    while self.stock and self.stock[-1][0] >= price:
+        cnt += self.stock.pop[1]
+    self.stock.append((price,cnt))
+```
 
 ## 小偷问题
 198	House Robber (Easy)
