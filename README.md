@@ -11,14 +11,14 @@ for i in prices:
 
 122.	Best Time to Buy and Sell Stock II (Easy)
 可多次交易，找总最大收益
-```
+```python3
 for i in range(1,len(prices):
     profit+=prices[i]-prices[i-1] if prices[i]-prices[i-1]>0
 ```
 
 123.  Best Time to Buy and Sell Stock III (Hard)
-最多两次交易（同理多次）
-```
+最多两次交易（同理固定次数的多次），这种方法比较合理且避免了DP(好吧其实我不是很会DP)
+```python3
 for i in prices:
     buy1 = min(buy1, i) #找当前最低一次买入价格
     prof1 = max(prof1, i-buy1) #找第一次交易最大收益
@@ -28,8 +28,22 @@ return prof2
 ```
 
 188.  Best Time to Buy and Sell Stock IV (Hard)
+嗷嗷还是逃不过变量k次交易，上面的tricky tip就不能用了，不得不用DP的情况
+```python3
+
+```
 
 714.	Best Time to Buy and Sell Stock with Transaction Fee (Med)
+贪心，将交易费用考虑进买入价格中
+```python3
+for i in prices:
+    if i < low:
+        low = i
+    elif i > low + fee:
+        prof += i - low - fee
+        low = i - fee #每次选择售出获利时，将下一次买入价格考虑为“不售出当前股票时”的情况，退还手续费，供后续对比使用
+return prof
+```
 
 901.	Online Stock Span (Med)
 
