@@ -3,7 +3,7 @@
 ## 股票问题
 121.	Best Time to Buy and Sell Stock (Easy)
 一次交易，找最大收益
-```
+```python3
 for i in prices:
     low = min(low, i)
     profit = max(profit, i-low)
