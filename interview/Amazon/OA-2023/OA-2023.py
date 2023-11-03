@@ -1,4 +1,4 @@
-# This document aims to practice all the OA questions found online 
+# This document aims to practice all the OA questions found online.
 # including Intern and Full-time positions.
 
 # https://leetcode.com/discuss/interview-question?currentPage=1&orderBy=newest_to_oldest&query=&tag=amazon
@@ -23,7 +23,20 @@ Question 1:
 
     The keypad click count is defined as the number of button presses required to print a given string In order to send messages faster customers tend to set the keypad design in
 '''
+from collections import Counter
+def minKeyoadClickCount(text: str):
+    cntr = Counter(text)
+    values = sorted(cntr.values(), reverse=True)
+    res = 0
+    for i in range(len(values)):
+        res += (i//9 + 1)*values[i]
+    
+    return res
 
+print(minKeyoadClickCount("hello"))
+print(minKeyoadClickCount("abacadefghibj"))
+    
+    
 
 
 '''
